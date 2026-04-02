@@ -46,7 +46,7 @@ export default function AiSessionManager() {
 
   const fetchSessionDetail = async (id: string) => {
     try {
-      const res = await api.get(`${BASE}/sessions/${id}/messages`, { params: { source } });
+      const res = await api.get(`${BASE}/messages/session/${id}`, { params: { source } });
       setSelectedSession({ id, project_name: '', messages: res.data });
     } catch (err: any) {
       setError(err.response?.data?.detail || '加载消息失败');
