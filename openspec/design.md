@@ -145,21 +145,29 @@ workbench/
 ## 7. 开发任务清单
 
 ### Phase 1：框架重构
-- [ ] T1: 后端工具自动发现机制（扫描 + 注册 + 工具列表API）
-- [ ] T2: wsl_path_bridge 添加 meta.json
-- [ ] T3: 后端 main.py 重构（集成自动发现）
-- [ ] T4: 前端首页重构（动态工具列表）
-- [ ] T5: 前端路由重构（动态工具路由）
+- [x] T1: 后端工具自动发现机制（扫描 + 注册 + 工具列表API） — `main.py:discover_tools()` ✅
+- [x] T2: wsl_path_bridge 添加 meta.json — `backend/tools/wsl_path_bridge/meta.json` ✅
+- [x] T3: 后端 main.py 重构（集成自动发现） — `main.py` 已集成 ✅
+- [x] T4: 前端首页重构（动态工具列表） — `Home.tsx` 调用 `/api/tools` ✅
+- [x] T5: 前端路由重构（动态工具路由） — `App.tsx` 注册工具路由 ✅
 
 ### Phase 2：基础设施
-- [ ] T6: 添加 .gitignore
-- [ ] T7: 添加 README.md + README_CN.md
-- [ ] T8: 添加 tests/ 基础结构 + conftest.py
-- [ ] T9: 工具发现机制单元测试
+- [x] T6: 添加 .gitignore — 已存在（待补充完善）
+- [x] T7: 添加 README.md + README_CN.md — 双语 README 已完成 ✅
+- [x] T8: 添加 tests/ 基础结构 + conftest.py — `tests/conftest.py` ✅
+- [x] T9: 工具发现机制单元测试 — `tests/unit/backend/test_tool_discovery.py` ✅
 
 ### Phase 3：WSL Path Bridge 适配
-- [ ] T10: 确认 wsl_path_bridge 适配新框架
-- [ ] T11: WSL 工具前端适配
+- [x] T10: 确认 wsl_path_bridge 适配新框架 — `router.py` + `storage.py` + `meta.json` ✅
+- [x] T11: WSL 工具前端适配 — `WslPathBridge.tsx` + 6 个组件 ✅
+
+### Phase 4：待补充
+- [ ] T12: 补充 wsl_path_bridge 后端 API 单元测试
+- [ ] T13: 补充 wsl_path_bridge 前端 pathUtils 单元测试
+- [ ] T14: 实现主题 API（GET/POST /api/theme）
+- [ ] T15: 创建 .kilocode/ 目录 + kilo.json
+- [ ] T16: 完善 .gitignore
+- [ ] T17: 创建 .dev-workflow.md 上下文文件
 
 ---
 

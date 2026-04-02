@@ -28,7 +28,7 @@ export function getParentPath(path: string): string {
     return isWslPath(path) ? '/' : '';
   }
   parts.pop();
-  const prefix = isWslPath(path) ? '' : '';
+  const prefix = isWslPath(path) ? '/' : '';
   return prefix + parts.join('/');
 }
 

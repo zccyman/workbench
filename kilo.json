@@ -1,0 +1,9 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "skills": {
+    "dev-workflow": {
+      "path": ".kilocode/skills/dev-workflow/SKILL.md",
+      "user-invocable": true
+    }
+  }
+}
