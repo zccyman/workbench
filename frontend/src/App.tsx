@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import WslPathBridge from './pages/tools/WslPathBridge'
+import AiSessionManager from './pages/tools/AiSessionManager'
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -24,6 +25,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="tools/wsl_path_bridge" element={<WslPathBridge />} />
         <Route path="tools/wsl-path-bridge" element={<WslPathBridge />} />
+        <Route path="tools/ai_session_manager" element={<AiSessionManager />} />
         <Route path="tools/:toolId" element={<Home />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
