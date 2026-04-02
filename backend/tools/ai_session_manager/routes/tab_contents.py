@@ -9,8 +9,8 @@ import os
 import re
 from datetime import datetime
 
-from .database import get_db
-from .models import (
+from ..database import get_db
+from ..models import (
     TabContent,
     TabContentCreate,
     TabContentWithStats,
@@ -26,7 +26,7 @@ _tab_export_progress = {}
 
 def get_app_db():
     """Get the app's own database for storing tab contents."""
-    from .database import Database
+    from ..database import Database
     import os
 
     db_path = os.environ.get("APP_DB_PATH", "data/app.db")

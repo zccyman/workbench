@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query, HTTPException
-from .database import get_db
-from .models import StatsOverview, StatsTrend, ProjectStats
+from ..database import get_db
+from ..models import StatsOverview, StatsTrend, ProjectStats
 from datetime import datetime
 
 router = APIRouter(prefix="/stats", tags=["statistics"])

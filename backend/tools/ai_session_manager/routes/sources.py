@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from .config import config
+from ..config import config
 
 router = APIRouter(prefix="/sources", tags=["sources"])
 

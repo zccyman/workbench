@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query
-from .services.knowledge_service import extract_knowledge
-from .models import KnowledgeExtraction
+from ..services.knowledge_service import extract_knowledge
+from ..models import KnowledgeExtraction
 
 router = APIRouter(prefix="/knowledge", tags=["knowledge"])
 

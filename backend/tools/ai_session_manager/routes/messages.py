@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
 import json
-from .database import get_db
-from .models import Message, MessageWithParts, Part
+from ..database import get_db
+from ..models import Message, MessageWithParts, Part
 
 router = APIRouter(prefix="/messages", tags=["messages"])
 

@@ -2,7 +2,7 @@ from fastapi import APIRouter, Query, HTTPException, BackgroundTasks
 from fastapi.responses import PlainTextResponse, JSONResponse
 from typing import List, Optional
 from pydantic import BaseModel
-from .services.export_service import (
+from ..services.export_service import (
     export_session_markdown,
     export_batch_markdown,
     export_session_json,

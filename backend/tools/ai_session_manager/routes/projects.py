@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query, HTTPException
-from .database import get_db
-from .models import Project, ProjectWithSessions
+from ..database import get_db
+from ..models import Project, ProjectWithSessions
 
 router = APIRouter(prefix="/projects", tags=["projects"])
 

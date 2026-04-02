@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
-from .database import get_db
-from .models import SessionWithProject, timestamp_to_str
+from ..database import get_db
+from ..models import SessionWithProject, timestamp_to_str
 
 
 def _fix_project_name(name, directory):

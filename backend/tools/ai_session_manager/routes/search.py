@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Query, HTTPException
 from typing import List
 import json
-from .database import get_db
-from .models import SearchResult
+from ..database import get_db
+from ..models import SearchResult
 
 router = APIRouter(prefix="/search", tags=["search"])
 
