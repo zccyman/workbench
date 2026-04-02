@@ -161,14 +161,15 @@ workbench/
 - [x] T10: 确认 wsl_path_bridge 适配新框架 — `router.py` + `storage.py` + `meta.json` ✅
 - [x] T11: WSL 工具前端适配 — `WslPathBridge.tsx` + 6 个组件 ✅
 
-### Phase 4：待补充
-- [ ] T12: 补充 wsl_path_bridge 后端 API 单元测试
-- [ ] T13: 补充 wsl_path_bridge 前端 pathUtils 单元测试
-- [ ] T14: 实现主题 API（GET/POST /api/theme）
-- [ ] T15: 创建 .kilocode/ 目录 + kilo.json
-- [ ] T16: 完善 .gitignore
-- [ ] T17: 创建 .dev-workflow.md 上下文文件
+### Phase 4：补充完善
+- [x] T12: 补充 wsl_path_bridge 后端 API 单元测试 — `tests/unit/backend/wsl_path_bridge/` (11 tests) ✅
+- [x] T13: 补充 wsl_path_bridge 前端 pathUtils 单元测试 — `frontend/src/utils/__tests__/pathUtils.test.ts` (25 tests) ✅
+- [x] T14: 实现主题 API（GET/POST /api/theme） — `main.py:get_theme/update_theme` ✅
+- [x] T15: 创建 .kilocode/ 目录 + kilo.json ✅
+- [x] T16: 完善 .gitignore ✅
+- [x] T17: 创建 .dev-workflow.md 上下文文件 ✅
 
 ---
 
 *生成时间：2026-04-02*
+*最后更新：2026-04-03*
