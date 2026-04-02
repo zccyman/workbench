@@ -136,11 +136,29 @@ workbench/
 - `GET /api/tools` — 工具列表（自动发现）
 
 ### WSL Path Bridge
-- `GET /api/tools/wsl-path-bridge/browse` — 浏览文件
-- `POST /api/tools/wsl-path-bridge/convert` — 转换路径
+- `GET /api/tools/wsl-path-bridge/dir` — 浏览目录
+- `DELETE /api/tools/wsl-path-bridge/file` — 删除文件
 - `GET /api/tools/wsl-path-bridge/favorites` — 获取收藏
 - `POST /api/tools/wsl-path-bridge/favorites` — 添加收藏
 - `DELETE /api/tools/wsl-path-bridge/favorites/{id}` — 删除收藏
+
+### AI Session Manager
+- `GET /api/tools/ai_session_manager/sessions` — 获取会话列表
+- `GET /api/tools/ai_session_manager/messages/session/{id}/with-parts` — 获取消息详情
+- `GET /api/tools/ai_session_manager/search` — 搜索会话
+- `GET /api/tools/ai_session_manager/projects` — 项目列表
+- `GET /api/tools/ai_session_manager/stats/*` — 统计数据
+- `GET /api/tools/ai_session_manager/export/*` — 数据导出
+- `GET/POST/DELETE /api/tools/ai_session_manager/tab-contents/*` — 浏览器标签页管理
+
+### AI Session Manager
+- `GET /api/tools/ai_session_manager/sessions` — 获取会话列表
+- `GET /api/tools/ai_session_manager/messages/session/{id}/with-parts` — 获取消息详情
+- `GET /api/tools/ai_session_manager/search` — 搜索会话
+- `GET /api/tools/ai_session_manager/projects` — 项目列表
+- `GET /api/tools/ai_session_manager/stats/*` — 统计数据
+- `GET /api/tools/ai_session_manager/export/*` — 数据导出
+- `GET/POST/DELETE /api/tools/ai_session_manager/tab-contents/*` — 浏览器标签页管理
 
 ## 7. 开发任务清单
 
@@ -168,6 +186,22 @@ workbench/
 - [x] T15: 创建 .kilocode/ 目录 + kilo.json ✅
 - [x] T16: 完善 .gitignore ✅
 - [x] T17: 创建 .dev-workflow.md 上下文文件 ✅
+
+### Phase 5：AI Session Manager 入驻
+- [x] T18: 后端工具适配 — `backend/tools/ai_session_manager/` (router + 8 routes + 3 services) ✅
+- [x] T19: meta.json 工具元数据 ✅
+- [x] T20: 前端页面 — `AiSessionManager.tsx` + 路由注册 ✅
+- [x] T21: 后端单元测试 — `tests/unit/backend/ai_session_manager/` (100 tests) ✅
+- [x] T22: 前端单元测试 — `frontend/src/__tests__/pages/tools/AiSessionManager.test.tsx` (12 tests) ✅
+- [x] T23: 补录 OpenSpec — `openspec/changes/ai-session-manager-integration/` ✅
+
+### Phase 5：AI Session Manager 入驻
+- [x] T18: 后端工具适配 — `backend/tools/ai_session_manager/` (router + 8 routes + 3 services) ✅
+- [x] T19: meta.json 工具元数据 ✅
+- [x] T20: 前端页面 — `AiSessionManager.tsx` + 路由注册 ✅
+- [x] T21: 后端单元测试 — `tests/unit/backend/ai_session_manager/` (100 tests) ✅
+- [x] T22: 前端单元测试 — `frontend/src/__tests__/pages/tools/AiSessionManager.test.tsx` (12 tests) ✅
+- [x] T23: 补录 OpenSpec — `openspec/changes/ai-session-manager-integration/` ✅
 
 ---
 

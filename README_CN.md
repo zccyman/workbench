@@ -72,6 +72,8 @@ cd frontend && npm run dev
 | 工具 | 描述 |
 |------|------|
 | WSL Path Bridge | 浏览 WSL 文件系统，WSL 与 Windows 路径格式互转 |
+| AI Session Manager | 管理 Kilo Code 和 OpenCode 的 AI 编码会话 — 搜索、浏览消息、导出和统计 |
+| AI Session Manager | 管理 Kilo Code 和 OpenCode 的 AI 编码会话 — 搜索、浏览消息、导出和统计 |
 
 ## 许可证
 

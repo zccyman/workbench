@@ -72,6 +72,7 @@ cd frontend && npm run dev
 | Tool | Description |
 |------|-------------|
 | WSL Path Bridge | Browse WSL filesystem and convert paths between WSL and Windows formats |
+| AI Session Manager | Manage AI coding assistant sessions from Kilo Code and OpenCode — search, browse messages, export, and statistics |
 
 ## License
 
