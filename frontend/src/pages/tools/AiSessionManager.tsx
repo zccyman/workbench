@@ -11,15 +11,17 @@ interface Session {
   source: string;
 }
 
-interface SessionDetail {
+interface MessageData {
   id: string;
-  project_name: string;
-  messages: { role: string; content: string; timestamp: number }[];
+  session_id: string;
+  time_created: number;
+  data: string;
+  parsed?: { role?: string; content?: string; text?: string };
 }
 
 export default function AiSessionManager() {
   const [sessions, setSessions] = useState<Session[]>([]);
-  const [selectedSession, setSelectedSession] = useState<SessionDetail | null>(null);
+  const [messages, setMessages] = useState<MessageData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,6 +36,7 @@ export default function AiSessionManager() {
   const fetchSessions = async () => {
     setLoading(true);
     setError('');
+    setMessages([]);
     try {
       const res = await api.get(`${BASE}/sessions`, { params: { source, limit: 100 } });
       setSessions(res.data);
@@ -47,7 +50,11 @@ export default function AiSessionManager() {
   const fetchSessionDetail = async (id: string) => {
     try {
       const res = await api.get(`${BASE}/messages/session/${id}`, { params: { source } });
-      setSelectedSession({ id, project_name: '', messages: res.data });
+      const msgs: MessageData[] = res.data.map((m: MessageData) => {
+        try { m.parsed = JSON.parse(m.data); } catch { m.parsed = {}; }
+        return m;
+      });
+      setMessages(msgs);
     } catch (err: any) {
       setError(err.response?.data?.detail || '加载消息失败');
     }
@@ -70,6 +77,10 @@ export default function AiSessionManager() {
     if (!ts) return '';
     const d = new Date(ts);
     return d.toLocaleDateString('zh-CN');
+  };
+
+  const getMessageContent = (msg: MessageData) => {
+    return msg.parsed?.text || msg.parsed?.content || msg.data;
   };
 
   return (
@@ -127,7 +138,7 @@ export default function AiSessionManager() {
                 <p className="text-sm font-medium truncate">{s.project_name || 'Unknown'}</p>
                 <div className="flex gap-2 mt-1 text-xs" style={{ color: 'var(--text-secondary)' }}>
                   <span>{s.message_count} 条消息</span>
-                  <span>{timeAgo(s.updated_at)}</span>
+                  <span>{timeAgo(s.updated_at || s.time_updated)}</span>
                 </div>
               </div>
             ))
@@ -137,30 +148,37 @@ export default function AiSessionManager() {
 
       {/* 右侧：消息详情 */}
       <div className="flex-1 overflow-auto p-4">
-        {selectedSession ? (
+        {messages.length > 0 ? (
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">会话详情</h3>
-            {selectedSession.messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`p-3 rounded-lg text-sm ${
-                  msg.role === 'user'
-                    ? 'bg-blue-50 dark:bg-blue-900/20 ml-12'
-                    : 'bg-gray-50 dark:bg-gray-800 mr-12'
-                }`}
-              >
-                <p className="text-xs font-semibold mb-1" style={{ color: 'var(--text-secondary)' }}>
-                  {msg.role === 'user' ? '👤 用户' : '🤖 助手'}
-                </p>
-                <div className="whitespace-pre-wrap">{msg.content}</div>
-              </div>
-            ))}
+            <h3 className="text-lg font-semibold mb-2">会话详情</h3>
+            {messages.map((msg, i) => {
+              const role = msg.parsed?.role || '';
+              const content = getMessageContent(msg);
+              if (!content) return null;
+              return (
+                <div
+                  key={i}
+                  className={`p-3 rounded-lg text-sm ${
+                    role === 'user'
+                      ? 'bg-blue-50 dark:bg-blue-900/20 ml-12'
+                      : 'bg-gray-50 dark:bg-gray-800 mr-12'
+                  }`}
+                >
+                  <p className="text-xs font-semibold mb-1" style={{ color: 'var(--text-secondary)' }}>
+                    {role === 'user' ? '👤 用户' : '🤖 助手'}
+                  </p>
+                  <div className="whitespace-pre-wrap break-words max-h-64 overflow-auto">
+                    {typeof content === 'string' ? content : JSON.stringify(content, null, 2)}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ) : (
           <div className="flex items-center justify-center h-full" style={{ color: 'var(--text-secondary)' }}>
             <div className="text-center">
               <p className="text-4xl mb-3">🤖</p>
-              <p>选择一个会话查看详情</p>
+              <p className="text-sm">点击左侧会话查看详情</p>
             </div>
           </div>
         )}
