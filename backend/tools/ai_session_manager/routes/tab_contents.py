@@ -80,17 +80,6 @@ def create_tab_content(content: TabContentCreate):
         updated_at=now,
     )
 
-    return TabContent(
-        id=content_id,
-        title=content.title,
-        url=content.url,
-        markdown=content.markdown,
-        messages=content.messages,
-        source=content.source,
-        created_at=now,
-        updated_at=now,
-    )
-
 
 @router.get("", response_model=List[TabContentWithStats])
 def list_tab_contents(
