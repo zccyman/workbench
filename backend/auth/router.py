@@ -21,12 +21,11 @@ class UserResponse(BaseModel):
 @router.post("/register")
 def register(req: AuthRequest, db: Session = Depends(get_db)):
     if db.query(User).filter(User.username == req.username).first():
-        raise HTTPException(status_code=400, detail="Username already exists")
+        raise HTTPException(status_code=400, detail="用户名已存在")
     user = User(username=req.username, hashed_password=hash_password(req.password))
     db.add(user)
     db.commit()
-    db.refresh(user)
-    return {"token": create_token(user.id), "user": {"id": user.id, "username": user.username}}
+    return {"message": "注册成功"}
 
 @router.post("/login")
 def login(req: AuthRequest, db: Session = Depends(get_db)):

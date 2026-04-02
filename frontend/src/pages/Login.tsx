@@ -15,7 +15,11 @@ export default function Login() {
     try {
       const url = isRegister ? '/api/auth/register' : '/api/auth/login'
       const res = await api.post(url, { username, password })
-      if (res.data.token) {
+      if (isRegister) {
+        setError('')
+        setIsRegister(false)
+        alert('注册成功！请登录')
+      } else if (res.data.token) {
         localStorage.setItem('token', res.data.token)
         navigate('/')
       }

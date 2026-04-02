@@ -4,13 +4,15 @@
 echo "🛠️ Starting Workbench..."
 
 # 启动后端
-cd "$(dirname "$0")/backend"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+
+cd "$ROOT/backend"
 pip install -q -r requirements.txt 2>/dev/null
-python main.py &
+python -m uvicorn main:app --host 0.0.0.0 --port 8001 &
 BACKEND_PID=$!
 
 # 启动前端
-cd "$(dirname "$0")/frontend"
+cd "$ROOT/frontend"
 npm install --silent 2>/dev/null
 npx vite --host &
 FRONTEND_PID=$!

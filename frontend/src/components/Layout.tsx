@@ -1,4 +1,6 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import api from '../utils/api'
 
 interface LayoutProps {
   dark: boolean
@@ -7,6 +9,16 @@ interface LayoutProps {
 
 export default function Layout({ dark, setDark }: LayoutProps) {
   const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+
+  useEffect(() => {
+    api.get('/api/auth/me').then(res => {
+      setUsername(res.data.username)
+    }).catch(() => {
+      localStorage.removeItem('token')
+      navigate('/login')
+    })
+  }, [navigate])
 
   const handleLogout = () => {
     localStorage.removeItem('token')
@@ -22,6 +34,11 @@ export default function Layout({ dark, setDark }: LayoutProps) {
           <Link to="/tools/wsl-path-bridge" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">📂 WSL 路径转换</Link>
         </nav>
         <div className="border-t pt-3 space-y-2" style={{ borderColor: 'var(--border)' }}>
+          {username && (
+            <div className="px-3 py-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+              👤 {username}
+            </div>
+          )}
           <button onClick={() => setDark(!dark)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
             {dark ? '☀️ 亮色' : '🌙 暗色'}
           </button>

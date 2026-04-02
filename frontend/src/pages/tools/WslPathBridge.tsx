@@ -4,8 +4,8 @@ import { Breadcrumb } from '../../components/wsl/Breadcrumb';
 import { FileList, type FileEntry } from '../../components/wsl/FileList';
 import { CopyButton } from '../../components/wsl/CopyButton';
 import { FavoritesPanel, type Favorite } from '../../components/wsl/FavoritesPanel';
-import { windowsToWsl, wslToWindows, isWslPath } from '../utils/pathUtils';
-import api from '../utils/api';
+import { windowsToWsl, wslToWindows, isWslPath } from '../../utils/pathUtils';
+import api from '../../utils/api';
 
 interface DirResponse {
   entries: FileEntry[];
