@@ -1,0 +1,8 @@
+{
+  "name": "WSL Path Bridge",
+  "id": "wsl_path_bridge",
+  "description": "WSL路径转换工具，浏览WSL文件系统并在WSL和Windows路径格式间转换",
+  "icon": "🔄",
+  "category": "开发工具",
+  "version": "1.0.0"
+}
