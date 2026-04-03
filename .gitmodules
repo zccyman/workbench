@@ -1,0 +1,9 @@
+[submodule "third-party/control-center"]
+	path = third-party/control-center
+	url = https://github.com/TianyiDataScience/openclaw-control-center.git
+[submodule "third-party/mission-control"]
+	path = third-party/mission-control
+	url = https://github.com/abhi1693/openclaw-mission-control.git
+[submodule "third-party/command-center"]
+	path = third-party/command-center
+	url = https://github.com/jontsai/openclaw-command-center.git
