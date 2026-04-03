@@ -160,6 +160,13 @@ workbench/
 - `GET /api/tools/ai_session_manager/export/*` — 数据导出
 - `GET/POST/DELETE /api/tools/ai_session_manager/tab-contents/*` — 浏览器标签页管理
 
+### Usage Monitor
+- `GET /api/tools/usage_monitor/analyze` — 分析会话数据（查询参数）
+- `POST /api/tools/usage_monitor/analyze` — 分析会话数据（请求体）
+- `GET /api/tools/usage_monitor/report/markdown` — Markdown 格式报告
+- `GET /api/tools/usage_monitor/report/json` — JSON 格式报告
+- `GET /api/tools/usage_monitor/config` — 获取可用 Agent 列表
+
 ## 7. 开发任务清单
 
 ### Phase 1：框架重构
@@ -203,7 +210,14 @@ workbench/
 - [x] T22: 前端单元测试 — `frontend/src/__tests__/pages/tools/AiSessionManager.test.tsx` (12 tests) ✅
 - [x] T23: 补录 OpenSpec — `openspec/changes/ai-session-manager-integration/` ✅
 
+### Phase 6：Usage Monitor 入驻
+- [x] T24: 后端工具适配 — `backend/tools/usage_monitor/` (collector + analyzer + reporter + router) ✅
+- [x] T25: meta.json 工具元数据 ✅
+- [x] T26: 前端页面 — `UsageMonitor.tsx` + 6 个图表组件 + 路由注册 ✅
+- [x] T27: 后端单元测试 — `tests/unit/backend/usage_monitor/` (15 tests) ✅
+- [x] T28: 补录 OpenSpec — `openspec/changes/usage-monitor-integration/` ✅
+
 ---
 
 *生成时间：2026-04-02*
-*最后更新：2026-04-03*
+*最后更新：2026-04-04*

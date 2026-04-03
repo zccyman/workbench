@@ -1,0 +1,8 @@
+{
+  "name": "Usage Monitor",
+  "id": "usage_monitor",
+  "description": "OpenClaw 会话使用数据分析工具，跟踪工具调用、技能激活、时间分布",
+  "icon": "📊",
+  "category": "开发工具",
+  "version": "1.0.0"
+}

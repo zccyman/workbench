@@ -1,0 +1,2 @@
+{"type": "message", "timestamp": "2026-04-02T14:00:00Z", "message": {"role": "assistant", "content": [{"type": "toolCall", "name": "bash", "arguments": {"command": "git status"}}]}}
+{"type": "message", "timestamp": "2026-04-02T14:01:00Z", "message": {"role": "assistant", "content": [{"type": "toolCall", "name": "read", "arguments": {"file_path": "/home/user/.openclaw/agents/bot1/skills/dev-workflow/SKILL.md"}}]}}
