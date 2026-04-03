@@ -54,6 +54,54 @@ export default function Home() {
     <div>
       <h1 className="text-2xl font-bold mb-6">我的工具箱</h1>
       
+      {/* OpenClaw 控制台 */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>
+          OpenClaw 控制台
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a
+            href="http://localhost:4310"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-6 rounded-lg border hover:shadow-lg transition-shadow"
+            style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border)' }}
+          >
+            <span className="text-3xl">🎛️</span>
+            <h2 className="text-lg font-semibold mt-2">Control Center</h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
+              本地健康监控、用量统计、多 Agent 协作、任务审批
+            </p>
+          </a>
+          <a
+            href="http://localhost:3000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-6 rounded-lg border hover:shadow-lg transition-shadow"
+            style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border)' }}
+          >
+            <span className="text-3xl">🚀</span>
+            <h2 className="text-lg font-semibold mt-2">Mission Control</h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
+              团队编排、审批治理、网关管理、操作审计
+            </p>
+          </a>
+          <a
+            href="http://localhost:3333"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-6 rounded-lg border hover:shadow-lg transition-shadow"
+            style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border)' }}
+          >
+            <span className="text-3xl">📊</span>
+            <h2 className="text-lg font-semibold mt-2">Command Center</h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
+              轻量实时监控 — 会话、成本、系统健康
+            </p>
+          </a>
+        </div>
+      </div>
+
       {categories.map(category => (
         <div key={category} className="mb-8">
           <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>
