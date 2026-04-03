@@ -37,7 +37,7 @@ echo "✅ Workbench started!"
 echo "   Frontend: http://localhost:5173"
 echo "   Backend:  http://localhost:8001"
 
-if [ "$START_THIRD_PARTY" = true ]; then
+  if [ "$START_THIRD_PARTY" = true ]; then
   echo ""
   echo "🔄 Starting third-party OpenClaw dashboards..."
 
@@ -55,14 +55,18 @@ if [ "$START_THIRD_PARTY" = true ]; then
   COMMAND_CENTER_PID=$!
   echo "   Command Center: http://localhost:3333"
 
-  echo "   ⚠️  Mission Control skipped (requires PostgreSQL + Redis)"
+  # mission-control (backend:8000, frontend:3000)
+  MISSION_CONTROL_BACKEND_PORT=8000 MISSION_CONTROL_FRONTEND_PORT=3000 \
+    bash "$ROOT/scripts/start-mission-control-local.sh" &
+  MISSION_CONTROL_PID=$!
+  echo "   Mission Control: http://localhost:3000"
 fi
 
 echo ""
 echo "Press Ctrl+C to stop"
 
 if [ "$START_THIRD_PARTY" = true ]; then
-  trap "kill $BACKEND_PID $FRONTEND_PID $CONTROL_CENTER_PID $COMMAND_CENTER_PID 2>/dev/null" EXIT
+  trap "kill $BACKEND_PID $FRONTEND_PID $CONTROL_CENTER_PID $COMMAND_CENTER_PID $MISSION_CONTROL_PID 2>/dev/null" EXIT
 else
   trap "kill $BACKEND_PID $FRONTEND_PID 2>/dev/null" EXIT
 fi
