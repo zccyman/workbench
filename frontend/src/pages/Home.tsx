@@ -74,19 +74,6 @@ export default function Home() {
             </p>
           </a>
           <a
-            href="http://localhost:3000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block p-6 rounded-lg border hover:shadow-lg transition-shadow"
-            style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border)' }}
-          >
-            <span className="text-3xl">🚀</span>
-            <h2 className="text-lg font-semibold mt-2">Mission Control</h2>
-            <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
-              团队编排、审批治理、网关管理、操作审计
-            </p>
-          </a>
-          <a
             href="http://localhost:3333"
             target="_blank"
             rel="noopener noreferrer"
@@ -99,6 +86,17 @@ export default function Home() {
               轻量实时监控 — 会话、成本、系统健康
             </p>
           </a>
+          <div
+            className="block p-6 rounded-lg border opacity-50 cursor-not-allowed"
+            style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border)' }}
+            title="需要 PostgreSQL + Redis"
+          >
+            <span className="text-3xl">🚀</span>
+            <h2 className="text-lg font-semibold mt-2">Mission Control</h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
+              团队编排、审批治理、网关管理（需 PostgreSQL + Redis）
+            </p>
+          </div>
         </div>
       </div>
 

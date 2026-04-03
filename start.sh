@@ -55,23 +55,14 @@ if [ "$START_THIRD_PARTY" = true ]; then
   COMMAND_CENTER_PID=$!
   echo "   Command Center: http://localhost:3333"
 
-  # mission-control (docker compose, ports 8000 + 3000)
-  cd "$ROOT/third-party/mission-control"
-  if command -v docker &>/dev/null && docker compose version &>/dev/null 2>&1; then
-    docker compose up -d 2>/dev/null &
-    MISSION_CONTROL_PID=$!
-    echo "   Mission Control: http://localhost:3000 (backend: 8000)"
-  else
-    echo "   ⚠️  Mission Control skipped (docker not available)"
-    MISSION_CONTROL_PID=""
-  fi
+  echo "   ⚠️  Mission Control skipped (requires PostgreSQL + Redis)"
 fi
 
 echo ""
 echo "Press Ctrl+C to stop"
 
 if [ "$START_THIRD_PARTY" = true ]; then
-  trap "kill $BACKEND_PID $FRONTEND_PID $CONTROL_CENTER_PID $COMMAND_CENTER_PID ${MISSION_CONTROL_PID:-} 2>/dev/null" EXIT
+  trap "kill $BACKEND_PID $FRONTEND_PID $CONTROL_CENTER_PID $COMMAND_CENTER_PID 2>/dev/null" EXIT
 else
   trap "kill $BACKEND_PID $FRONTEND_PID 2>/dev/null" EXIT
 fi
