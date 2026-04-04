@@ -167,6 +167,16 @@ workbench/
 - `GET /api/tools/usage_monitor/report/json` — JSON 格式报告
 - `GET /api/tools/usage_monitor/config` — 获取可用 Agent 列表
 
+### Agent Monitor
+- `GET /api/tools/agent-monitor/overview` — 总览数据（Agent 数、会话数、Token、成本）
+- `GET /api/tools/agent-monitor/sessions` — 会话列表（分页+过滤）
+- `GET /api/tools/agent-monitor/sessions/{id}` — 会话详情
+- `GET /api/tools/agent-monitor/agents` — Agent 状态列表
+- `GET /api/tools/agent-monitor/token-trend` — Token 趋势
+- `GET /api/tools/agent-monitor/cost-trend` — 成本趋势
+- `GET /api/tools/agent-monitor/model-breakdown` — 模型分布
+- `GET /api/tools/agent-monitor/health` — 健康检查
+
 ## 7. 开发任务清单
 
 ### Phase 1：框架重构
@@ -216,6 +226,17 @@ workbench/
 - [x] T26: 前端页面 — `UsageMonitor.tsx` + 6 个图表组件 + 路由注册 ✅
 - [x] T27: 后端单元测试 — `tests/unit/backend/usage_monitor/` (15 tests) ✅
 - [x] T28: 补录 OpenSpec — `openspec/changes/usage-monitor-integration/` ✅
+
+### Phase 7：Agent Monitor 入驻
+- [x] T29: 后端骨架 — `backend/tools/agent_monitor/` (meta.json + models.py + router.py) ✅
+- [x] T30: 采集层 — `collector.py` 复用 ai_session_manager + usage_monitor ✅
+- [x] T31: 分析层 — `analyzer.py` token/成本/趋势计算 ✅
+- [x] T32: 后端 API — 8 个端点完整实现 ✅
+- [x] T33: 前端骨架 — `AgentMonitor.tsx` + `DashboardOverview.tsx` ✅
+- [x] T34: 图表组件 — `TokenChart.tsx` + `CostChart.tsx` + `ModelPieChart.tsx` ✅
+- [x] T35: 状态组件 — `AgentStatusCard.tsx` + `SessionTimeline.tsx` ✅
+- [x] T36: 联调测试 — 后端 31 tests 全部通过，前端 TypeScript clean ✅
+- [x] T37: 文档收尾 — README 更新 + .dev-workflow.md 更新 + design.md 更新 ✅
 
 ---
 

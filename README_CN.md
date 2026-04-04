@@ -73,7 +73,8 @@ cd frontend && npm run dev
 |------|------|
 | WSL Path Bridge | 浏览 WSL 文件系统，WSL 与 Windows 路径格式互转 |
 | AI Session Manager | 管理 Kilo Code 和 OpenCode 的 AI 编码会话 — 搜索、浏览消息、导出和统计 |
-| AI Session Manager | 管理 Kilo Code 和 OpenCode 的 AI 编码会话 — 搜索、浏览消息、导出和统计 |
+| Usage Monitor | 分析 OpenClaw 会话使用情况 — 工具调用、技能激活、时间分布 |
+| Agent Monitor | 实时监控 KiloCode 和 OpenCode Agent — Token 消耗、成本追踪、模型分布 |
 
 ## 许可证
 

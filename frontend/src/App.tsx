@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import WslPathBridge from './pages/tools/WslPathBridge'
 import AiSessionManager from './pages/tools/AiSessionManager'
 import UsageMonitor from './pages/tools/UsageMonitor'
+import AgentMonitor from './pages/tools/AgentMonitor'
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -28,6 +29,7 @@ function App() {
         <Route path="tools/wsl-path-bridge" element={<WslPathBridge />} />
         <Route path="tools/ai_session_manager" element={<AiSessionManager />} />
         <Route path="tools/usage_monitor" element={<UsageMonitor />} />
+        <Route path="tools/agent_monitor" element={<AgentMonitor />} />
         <Route path="tools/:toolId" element={<Home />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />

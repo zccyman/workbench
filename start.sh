@@ -51,15 +51,23 @@ echo "   Backend:  http://localhost:8001"
   # command-center (port 3333)
   cd "$ROOT/third-party/command-center"
   npm install --silent 2>/dev/null || true
+  bash "$ROOT/third-party/command-center/patches/apply.sh"
   PORT=3333 npm start &
   COMMAND_CENTER_PID=$!
   echo "   Command Center: http://localhost:3333"
 
   # mission-control (backend:8000, frontend:3000)
-  MISSION_CONTROL_BACKEND_PORT=8000 MISSION_CONTROL_FRONTEND_PORT=3000 \
-    bash "$ROOT/scripts/start-mission-control-local.sh" &
-  MISSION_CONTROL_PID=$!
-  echo "   Mission Control: http://localhost:3000"
+  cd "$ROOT/third-party/mission-control"
+  if [[ ! -f backend/.env ]]; then
+    echo "   ⚠️  Mission Control: skipped (no backend/.env)"
+  else
+    (cd backend && conda run -n stock uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload) &
+    MISSION_BACKEND_PID=$!
+    (cd frontend && npm install --silent 2>/dev/null || true && PORT=3000 npm run dev -- --port 3000) &
+    MISSION_FRONTEND_PID=$!
+    MISSION_CONTROL_PID=$MISSION_FRONTEND_PID
+    echo "   Mission Control: http://localhost:3000"
+  fi
 fi
 
 echo ""

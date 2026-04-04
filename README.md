@@ -73,6 +73,8 @@ cd frontend && npm run dev
 |------|-------------|
 | WSL Path Bridge | Browse WSL filesystem and convert paths between WSL and Windows formats |
 | AI Session Manager | Manage AI coding assistant sessions from Kilo Code and OpenCode — search, browse messages, export, and statistics |
+| Usage Monitor | Analyze OpenClaw session usage — tool calls, skill activations, time distribution |
+| Agent Monitor | Real-time monitoring of KiloCode and OpenCode agents — token consumption, cost tracking, model breakdown |
 
 ## License
 
