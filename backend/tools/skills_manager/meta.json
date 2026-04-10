@@ -1,0 +1,8 @@
+{
+    "id": "skills_manager",
+    "name": "Skills Manager",
+    "description": "管理 claw-skills 中的所有技能：分类浏览、搜索筛选、查看详情、启用/禁用",
+    "icon": "🎯",
+    "category": "management",
+    "version": "1.0.0"
+}

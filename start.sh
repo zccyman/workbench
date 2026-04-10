@@ -13,6 +13,7 @@ for arg in "$@"; do
       echo ""
       echo "Options:"
       echo "  --third-party, --tp    Also start third-party OpenClaw dashboards"
+      echo "  --open, -o             Open browser after startup"
       echo "  --help, -h             Show this help"
       exit 0
       ;;
@@ -23,7 +24,7 @@ echo "🛠️ Starting Workbench..."
 
 # Workbench backend
 cd "$ROOT/backend"
-pip install -q -r requirements.txt 2>/dev/null
+pip install -q -r requirements.txt 2>/dev/null || true
 python -m uvicorn main:app --host 0.0.0.0 --port 8001 &
 BACKEND_PID=$!
 
@@ -36,6 +37,26 @@ FRONTEND_PID=$!
 echo "✅ Workbench started!"
 echo "   Frontend: http://localhost:5173"
 echo "   Backend:  http://localhost:8001"
+
+OPEN_BROWSER=false
+for arg in "$@"; do
+  case "$arg" in
+    --open|-o) OPEN_BROWSER=true ;;
+  esac
+done
+
+if [ "$OPEN_BROWSER" = true ]; then
+  (
+    sleep 3
+    if command -v xdg-open &>/dev/null; then
+      xdg-open http://localhost:5173 2>/dev/null
+    elif command -v sensible-browser &>/dev/null; then
+      sensible-browser http://localhost:5173 2>/dev/null
+    elif command -v explorer.exe &>/dev/null; then
+      explorer.exe http://localhost:5173 2>/dev/null
+    fi
+  ) &
+fi
 
   if [ "$START_THIRD_PARTY" = true ]; then
   echo ""

@@ -32,6 +32,10 @@ export default function Layout({ dark, setDark }: LayoutProps) {
         <nav className="flex-1 space-y-1">
           <Link to="/" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">🏠 首页</Link>
           <Link to="/tools/wsl-path-bridge" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">📂 WSL 路径转换</Link>
+          <Link to="/tools/skills_manager" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">🎯 技能管理</Link>
+          <Link to="/tools/core_assets" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">💎 核心资产</Link>
+          <Link to="/tools/ai_session_manager" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">🤖 AI 会话</Link>
+          <Link to="/tools/chat_records" className="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">💬 聊天记录</Link>
         </nav>
         <div className="border-t pt-3 space-y-2" style={{ borderColor: 'var(--border)' }}>
           {username && (

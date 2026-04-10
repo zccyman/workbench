@@ -8,6 +8,10 @@ import WslPathBridge from './pages/tools/WslPathBridge'
 import AiSessionManager from './pages/tools/AiSessionManager'
 import UsageMonitor from './pages/tools/UsageMonitor'
 import AgentMonitor from './pages/tools/AgentMonitor'
+import SkillsManager from './pages/tools/SkillsManager'
+import CoreAssets from './pages/tools/CoreAssets'
+import MarkdownViewer from './pages/tools/MarkdownViewer'
+import ChatRecords from './pages/tools/ChatRecords'
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -17,7 +21,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('dark', dark ? 'dark' : 'light')
+    localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
   return (
@@ -30,6 +34,10 @@ function App() {
         <Route path="tools/ai_session_manager" element={<AiSessionManager />} />
         <Route path="tools/usage_monitor" element={<UsageMonitor />} />
         <Route path="tools/agent_monitor" element={<AgentMonitor />} />
+        <Route path="tools/skills_manager" element={<SkillsManager />} />
+        <Route path="tools/core_assets" element={<CoreAssets />} />
+        <Route path="tools/markdown_viewer" element={<MarkdownViewer />} />
+        <Route path="tools/chat_records" element={<ChatRecords />} />
         <Route path="tools/:toolId" element={<Home />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />

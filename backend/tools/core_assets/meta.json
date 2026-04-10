@@ -1,0 +1,8 @@
+{
+    "id": "core_assets",
+    "name": "Core Assets",
+    "description": "管理核心资产：查看、添加、移除、排序置顶，自动搜索知识库补充描述",
+    "icon": "💎",
+    "category": "management",
+    "version": "1.0.0"
+}

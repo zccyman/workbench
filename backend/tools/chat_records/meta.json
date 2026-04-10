@@ -1,0 +1,8 @@
+{
+  "name": "Chat Records",
+  "id": "chat_records",
+  "description": "聊天记录管理器，支持微信/QQ/飞书数据备份、解密导入、搜索查询",
+  "icon": "💬",
+  "category": "数据管理",
+  "version": "1.0.0"
+}

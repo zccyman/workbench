@@ -1,0 +1,8 @@
+{
+  "name": "Markdown Viewer",
+  "id": "markdown_viewer",
+  "description": "Markdown文件查看器与编辑器，支持完美渲染、代码高亮、数学公式",
+  "icon": "📝",
+  "category": "文档工具",
+  "version": "1.0.0"
+}
